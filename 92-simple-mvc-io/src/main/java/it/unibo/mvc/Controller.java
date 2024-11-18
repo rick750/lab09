@@ -9,22 +9,12 @@ import java.nio.charset.StandardCharsets;
  * Application controller. Performs the I/O.
  */
 public class Controller {
-    private final File file;
-    private boolean setted = false;
-    private final String PATH = System.getProperty("user.home")
-            + File.separator;
-    private final String DEF_NAME = "output.txt";
-
-    public Controller(final File file) {
-        this.file = file;
-        this.setted = true;
-    }
+    private static final String DEF_PATH = System.getProperty("user.home");
+    private static final String DEF_NAME = "output.txt";
+    private final File file = new File(DEF_PATH + File.separator + DEF_NAME);
 
     public String getPath() {
-        if (!setted) {
-            return this.PATH + this.DEF_NAME;
-        }
-        return this.file.getPath();
+        return DEF_PATH;
     }
 
     public File getFile() {
