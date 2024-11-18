@@ -74,13 +74,12 @@ public class BadIOGUI {
         });
 
         read.addActionListener(new ActionListener() {
-
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 try (
-                    final BufferedReader file = new BufferedReader(new FileReader(PATH))
+                    BufferedReader file = new BufferedReader(new FileReader(PATH))
                 ) {
-                    String line = file.readLine();
+                    final String line = file.readLine();
                     if (line != null) {
                         System.out.println(line);
                     }                    
@@ -88,7 +87,7 @@ public class BadIOGUI {
                     JOptionPane.showMessageDialog(frame, e2, "Error while reading", JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }) ;
+        });
     }
 
     private void display() {
