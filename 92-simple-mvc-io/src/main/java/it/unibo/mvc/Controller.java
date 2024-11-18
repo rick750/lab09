@@ -28,8 +28,7 @@ public class Controller {
     }
 
     public File getFile() {
-        final File defensiveCopyFile = this.file;
-        return defensiveCopyFile;
+        return this.file;
     }
 
     public void writeOnFile(final String str) {
