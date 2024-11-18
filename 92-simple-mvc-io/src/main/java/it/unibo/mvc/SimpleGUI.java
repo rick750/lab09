@@ -22,29 +22,27 @@ public final class SimpleGUI {
      * Constructor of a SimpleGUI.
      */
     public SimpleGUI() {
+        // Set layouts
         final BorderLayout brdLayout = new BorderLayout();
         frame.setLayout(brdLayout);
         final JPanel panel = new JPanel();
         panel.setLayout(brdLayout);
         frame.add(panel);
+        // Creating new components
         final JTextArea textArea = new JTextArea();
         final JButton bSave = new JButton("Save");
+        // Adding components to panel.
         panel.add(textArea, BorderLayout.CENTER);
         panel.add(bSave, BorderLayout.SOUTH);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        // Frame appearence instructions
         frame.setContentPane(panel);
-        /**
-         * Make the frame one fifth the resolution of the screen.
-        */
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();
         final int sh = (int) screen.getHeight();
         frame.setSize(sw / PROPORTION, sh / PROPORTION);
-        /** 
-         * The OS window manager take care of the default positioning
-         * on screen.
-         */
         frame.setLocationByPlatform(true);
+        // Behavior on exit
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     /**
