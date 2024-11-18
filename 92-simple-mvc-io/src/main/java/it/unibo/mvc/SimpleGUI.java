@@ -15,7 +15,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  * 
  */
 public final class SimpleGUI {
-    private static final int PROPORTION = 5;
+    private static final int PROPORTION = 2;
     private final JFrame frame = new JFrame();
 
     /**
@@ -26,12 +26,13 @@ public final class SimpleGUI {
         frame.setLayout(brdLayout);
         final JPanel panel = new JPanel();
         panel.setLayout(brdLayout);
-        frame.add(panel, BorderLayout.SOUTH);
+        frame.add(panel);
         final JTextArea textArea = new JTextArea();
         final JButton bSave = new JButton("Save");
         panel.add(textArea, BorderLayout.CENTER);
-        panel.add(bSave, BorderLayout.CENTER);
+        panel.add(bSave, BorderLayout.SOUTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setContentPane(panel);
         /**
          * Make the frame one fifth the resolution of the screen.
         */
@@ -44,10 +45,6 @@ public final class SimpleGUI {
          * on screen.
          */
         frame.setLocationByPlatform(true);
-        /**
-         * Resize the frame to the minimum size prior to displaying.
-        */
-        frame.pack();
     }
 
     /**
