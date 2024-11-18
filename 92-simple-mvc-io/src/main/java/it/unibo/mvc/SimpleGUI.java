@@ -5,11 +5,9 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
@@ -43,11 +41,7 @@ public final class SimpleGUI {
             new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent save) {
-                    try {
-                        controller.writeOnFile(textArea.getText());
-                    } catch (IOException e) {
-                        JOptionPane.showMessageDialog(frame, e, "Error while reading", JOptionPane.ERROR_MESSAGE);
-                    }
+                    controller.writeOnFile(textArea.getText());
                 }
             }
         );
@@ -75,7 +69,7 @@ public final class SimpleGUI {
      * @param args the argument passed when the file is called.
      */
     public static void main(final String[] args) {
-        final SimpleGUI gui = new SimpleGUI();
+        final SimpleGUI gui = new SimpleGUI(new Controller());
         gui.display();
     }
 }
