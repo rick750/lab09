@@ -3,11 +3,13 @@ package it.unibo.mvc;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
@@ -36,7 +38,19 @@ public final class SimpleGUI {
         // Adding components to panel.
         panel.add(textArea, BorderLayout.CENTER);
         panel.add(bSave, BorderLayout.SOUTH);
-        
+        // Save action
+        bSave.addActionListener(
+            new ActionListener() {
+                @Override
+                public void actionPerformed(final ActionEvent save) {
+                    try {
+                        controller.writeOnFile(textArea.getText());
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(frame, e, "Error while reading", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        );
         // Frame appearence instructions
         frame.setContentPane(panel);
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
