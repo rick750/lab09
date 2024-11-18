@@ -18,6 +18,9 @@ public final class SimpleGUI {
     private static final int PROPORTION = 5;
     private final JFrame frame = new JFrame();
 
+    /**
+     * Constructor of a SimpleGUI.
+     */
     public SimpleGUI() {
         frame.setLayout(new BorderLayout());
         final JPanel panel = new JPanel();
@@ -30,6 +33,9 @@ public final class SimpleGUI {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    /**
+     * Set correct instructions to make the frame correctly visible.
+     */
     public void display() {
         /**
          * Make the frame one fifth the resolution of the screen.
@@ -49,11 +55,16 @@ public final class SimpleGUI {
         frame.pack();
         /**
          *  Set the frame as visible. 
-         */        
+         */
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    /**
+     * Create a new SimpleGUI and make it start.
+     * 
+     * @param args the argument passed when the file is called.
+     */
+    public static void main(final String[] args) {
         final SimpleGUI gui = new SimpleGUI();
         gui.display();
     }
