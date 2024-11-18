@@ -78,7 +78,7 @@ public class BadIOGUI {
         read.addActionListener(
             new ActionListener() {
                 @Override
-                public void actionPerformed(final ActionEvent e) {
+                public void actionPerformed(final ActionEvent e1) {
                     try (
                         BufferedReader file = new BufferedReader(new FileReader(PATH, StandardCharsets.UTF_8))
                     ) {

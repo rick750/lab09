@@ -34,6 +34,11 @@ public class Controller {
         return this.file;
     }
 
+    /**
+     * Set a new file as current file.
+     * 
+     * @param file the new file to set as current
+     */
     public void setFile(final File file) {
         this.file = file;
     }

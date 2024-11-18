@@ -22,6 +22,8 @@ public final class SimpleGUI {
 
     /**
      * Constructor of a SimpleGUI.
+     * 
+     * @param controller the controller to use
      */
     public SimpleGUI(final Controller controller) {
         // Set layouts
