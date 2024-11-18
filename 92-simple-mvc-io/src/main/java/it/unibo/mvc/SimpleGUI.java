@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
  * A very simple program using a graphical interface.
@@ -24,6 +25,7 @@ public final class SimpleGUI {
         final JButton bSave = new JButton("Save");
         panel.add(textArea, BorderLayout.CENTER);
         panel.add(bSave, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     public static void main(String[] args) {
