@@ -11,6 +11,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Random;
 
 import javax.swing.BoxLayout;
@@ -73,21 +75,26 @@ public class BadIOGUI {
             }
         });
 
-        read.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                try (
-                    BufferedReader file = new BufferedReader(new FileReader(PATH))
-                ) {
-                    final String line = file.readLine();
-                    if (line != null) {
-                        System.out.println(line);
-                    }                    
-                } catch (IOException e2) {
-                    JOptionPane.showMessageDialog(frame, e2, "Error while reading", JOptionPane.ERROR_MESSAGE);
+        read.addActionListener(
+            new ActionListener() {
+                @Override
+                public void actionPerformed(final ActionEvent e) {
+                    try (
+                        BufferedReader file = new BufferedReader(new FileReader(PATH, StandardCharsets.UTF_8))
+                    ) {
+                        final String line = file.readLine();
+                        if (line != null) {
+                            System.out.println(line); //NOPMD : required by the excercise
+                        }
+                        for (final var myLine: Files.readAllLines(Path.of(PATH), StandardCharsets.UTF_8)) {
+                            System.out.println(myLine); //NOPMD : required by the excercise
+                        }
+                    } catch (IOException e2) {
+                        JOptionPane.showMessageDialog(frame, e2, "Error while reading", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             }
-        });
+        );
     }
 
     private void display() {
