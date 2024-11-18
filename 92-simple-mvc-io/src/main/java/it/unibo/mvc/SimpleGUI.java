@@ -43,6 +43,7 @@ public final class SimpleGUI {
             new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent save) {
+                    // try-catch removed because it generates an error during compilation.
                     controller.writeOnFile(textArea.getText());
                 }
             }
