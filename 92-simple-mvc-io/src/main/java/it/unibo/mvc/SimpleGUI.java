@@ -44,11 +44,11 @@ public final class SimpleGUI {
          */
         frame.setLocationByPlatform(true);
         /**
-         * Resize the frame to the minimum size prior to displaying
+         * Resize the frame to the minimum size prior to displaying.
         */
         frame.pack();
         /**
-         *  Set the frame as visible 
+         *  Set the frame as visible. 
          */        
         frame.setVisible(true);
     }

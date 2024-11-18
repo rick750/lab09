@@ -17,27 +17,27 @@ public class Controller {
     private final File file = new File(DEF_PATH + File.separator + DEF_NAME);
 
     /**
-     * Provides the current file path
+     * Provides the current file path.
      * 
-     * @return the current file path
+     * @return the current file path.
      */
     public String getPath() {
         return this.file.getPath();
     }
 
     /**
-     * Provides the current file
+     * Provides the current file.
      * 
-     * @return the current file
+     * @return the current file.
      */
     public File getFile() {
         return this.file;
     }
 
     /**
-     * Writes {@code str} in the current file
+     * Writes {@code str} in the current file.
      * 
-     * @param str
+     * @param str the string to write on current file.
      */
     public void writeOnFile(final String str) {
         try (PrintStream pStream = new PrintStream(getPath(), StandardCharsets.UTF_8)) {
