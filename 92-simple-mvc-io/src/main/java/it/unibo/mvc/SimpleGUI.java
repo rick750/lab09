@@ -32,12 +32,6 @@ public final class SimpleGUI {
         panel.add(textArea, BorderLayout.CENTER);
         panel.add(bSave, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    }
-
-    /**
-     * Set correct instructions to make the frame correctly visible.
-     */
-    public void display() {
         /**
          * Make the frame one fifth the resolution of the screen.
         */
@@ -54,9 +48,12 @@ public final class SimpleGUI {
          * Resize the frame to the minimum size prior to displaying.
         */
         frame.pack();
-        /**
-         *  Set the frame as visible. 
-         */
+    }
+
+    /**
+     * Set the frame as visible.
+     */
+    public void display() {
         frame.setVisible(true);
     }
 
