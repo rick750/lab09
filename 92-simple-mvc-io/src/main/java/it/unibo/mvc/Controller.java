@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * Application controller. Performs the I/O.
  */
 public class Controller {
-    private static final Logger logger = Logger.getLogger(System.class.getName());
+    private static final Logger LOG = Logger.getLogger(System.class.getName());
     private static final String DEF_PATH = System.getProperty("user.home");
     private static final String DEF_NAME = "output.txt";
     private final File file = new File(DEF_PATH + File.separator + DEF_NAME);
@@ -43,7 +43,7 @@ public class Controller {
         try (PrintStream pStream = new PrintStream(getPath(), StandardCharsets.UTF_8)) {
             pStream.print(str);
         } catch (IOException e2) {
-            logger.log(Level.SEVERE, "IOException thrown", e2);
+            LOG.log(Level.SEVERE, "IOException thrown", e2);
         }
     }
 }
