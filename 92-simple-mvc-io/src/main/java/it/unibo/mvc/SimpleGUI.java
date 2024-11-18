@@ -22,9 +22,10 @@ public final class SimpleGUI {
      * Constructor of a SimpleGUI.
      */
     public SimpleGUI() {
-        frame.setLayout(new BorderLayout());
+        final BorderLayout brdLayout = new BorderLayout();
+        frame.setLayout(brdLayout);
         final JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
+        panel.setLayout(brdLayout);
         frame.add(panel, BorderLayout.SOUTH);
         final JTextArea textArea = new JTextArea();
         final JButton bSave = new JButton("Save");
