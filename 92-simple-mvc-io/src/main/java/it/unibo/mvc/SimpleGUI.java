@@ -3,6 +3,8 @@ package it.unibo.mvc;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,7 +23,7 @@ public final class SimpleGUI {
     /**
      * Constructor of a SimpleGUI.
      */
-    public SimpleGUI() {
+    public SimpleGUI(final Controller controller) {
         // Set layouts
         final BorderLayout brdLayout = new BorderLayout();
         frame.setLayout(brdLayout);
@@ -34,6 +36,7 @@ public final class SimpleGUI {
         // Adding components to panel.
         panel.add(textArea, BorderLayout.CENTER);
         panel.add(bSave, BorderLayout.SOUTH);
+        
         // Frame appearence instructions
         frame.setContentPane(panel);
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
