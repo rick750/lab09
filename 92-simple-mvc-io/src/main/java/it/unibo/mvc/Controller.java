@@ -14,7 +14,7 @@ public class Controller {
     private static final Logger LOG = Logger.getLogger(System.class.getName());
     private static final String DEF_PATH = System.getProperty("user.home");
     private static final String DEF_NAME = "output.txt";
-    private final File file = new File(DEF_PATH + File.separator + DEF_NAME);
+    private File file = new File(DEF_PATH + File.separator + DEF_NAME);
 
     /**
      * Provides the current file path.
@@ -34,6 +34,10 @@ public class Controller {
         return this.file;
     }
 
+    public void setFile(final File file) {
+        this.file = file;
+    }
+
     /**
      * Writes {@code str} in the current file.
      * 
@@ -42,7 +46,7 @@ public class Controller {
     public void writeOnFile(final String str) {
         try (PrintStream pStream = new PrintStream(getPath(), StandardCharsets.UTF_8)) {
             pStream.print(str);
-        } catch (IOException e2) {
+        } catch (final IOException e2) {
             LOG.log(Level.SEVERE, "IOException thrown", e2);
         }
     }
