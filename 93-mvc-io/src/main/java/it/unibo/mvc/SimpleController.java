@@ -12,7 +12,7 @@ public final class SimpleController implements Controller {
     private final List<String> history = new LinkedList<>();
 
     @Override
-    public void setNextStringToPrint(String str) {
+    public void setNextStringToPrint(final String str) {
         if (str == null) {
             throw new IllegalArgumentException("Null values are not acceptable");
         }
