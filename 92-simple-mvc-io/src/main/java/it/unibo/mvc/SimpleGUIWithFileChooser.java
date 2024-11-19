@@ -1,12 +1,15 @@
 package it.unibo.mvc;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 
 /**
@@ -14,7 +17,7 @@ import javax.swing.JTextField;
  * 
  */
 public final class SimpleGUIWithFileChooser {
-
+    private static final int PROPORTION = 3;
     private final JFrame frame = new JFrame();
 
     public SimpleGUIWithFileChooser(final Controller controller) {
@@ -31,6 +34,15 @@ public final class SimpleGUIWithFileChooser {
         mainPanel.add(secondPanel, BorderLayout.NORTH);
         secondPanel.add(textField);
         secondPanel.add(btnBrowse);
+        // Frame appearence instructions
+        frame.setContentPane(mainPanel);
+        final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        final int sw = (int) screen.getWidth();
+        final int sh = (int) screen.getHeight();
+        frame.setSize(sw / PROPORTION, sh / PROPORTION);
+        frame.setLocationByPlatform(true);
+        // Behavior on exit
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     /**
