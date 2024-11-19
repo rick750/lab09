@@ -57,7 +57,7 @@ public final class SimpleGUI {
      * Launch the gui with a new controller
      */
     public static void main(String[] args) {
-        private final SimpleGUI gui = new SimpleGUI(new Controller());
+        final SimpleGUI gui = new SimpleGUI(new Controller());
         gui.display();
     }
 }
