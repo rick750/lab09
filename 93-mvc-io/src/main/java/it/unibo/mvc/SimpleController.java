@@ -25,7 +25,7 @@ public final class SimpleController implements Controller {
     }
 
     @Override
-    public List getPrintedStrings() {
+    public List<String> getPrintedStrings() {
         return List.copyOf(history);
     }
 
