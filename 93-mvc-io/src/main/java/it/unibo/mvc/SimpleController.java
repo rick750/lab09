@@ -19,7 +19,7 @@ public final class SimpleController implements Controller {
 
     @Override
     public String getNextStringToPrint() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.nextString;
     }
 
     @Override
