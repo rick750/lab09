@@ -1,5 +1,6 @@
 package it.unibo.mvc;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -8,6 +9,7 @@ import java.util.List;
  */
 public final class SimpleController implements Controller {
     private String nextString;
+    private final List<String> history = new LinkedList<>();
 
     @Override
     public void setNextStringToPrint(String str) {
