@@ -17,7 +17,7 @@ public final class SimpleGUIWithFileChooser {
 
     private final JFrame frame = new JFrame();
 
-    public SimpleGUIWithFileChooser() {
+    public SimpleGUIWithFileChooser(final Controller controller) {
         // Creating components
         final JPanel mainPanel = new JPanel();
         final JPanel secondPanel = new JPanel();
@@ -31,5 +31,22 @@ public final class SimpleGUIWithFileChooser {
         mainPanel.add(secondPanel, BorderLayout.NORTH);
         secondPanel.add(textField);
         secondPanel.add(btnBrowse);
+    }
+
+    /**
+     * Set the frame as visible.
+     */
+    public void display() {
+        frame.setVisible(true);
+    }
+
+    /**
+     * Create a new SimpleGUIWithFileChooser and make it start.
+     * 
+     * @param args the argument passed when the file is called.
+     */
+    public static void main(final String[] args) {
+        final SimpleGUIWithFileChooser gui = new SimpleGUIWithFileChooser(new Controller());
+        gui.display();
     }
 }
