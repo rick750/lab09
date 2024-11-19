@@ -23,7 +23,7 @@ public final class SimpleGUI {
     public SimpleGUI(final Controller controller) {
         // Components
         final JPanel panel = new JPanel();
-        final JTextArea textField = new JTextField();
+        final JTextField textField = new JTextField();
         final JTextArea textArea = new JTextArea();
         final JButton btnPrint = new JButton("Print");
         final JButton btnHistory = new JButton("Show history");
