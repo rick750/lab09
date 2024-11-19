@@ -3,6 +3,8 @@ package it.unibo.mvc;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,6 +28,16 @@ public final class SimpleGUI {
         final JTextArea textArea = new JTextArea();
         final JButton btnPrint = new JButton("Print");
         final JButton btnHistory = new JButton("Show history");
+        // btnPrint action
+        btnPrint.addActionListener(
+            new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    controller.setNextStringToPrint(textArea.getText());
+                    controller.printCurrentString();
+                };
+            }
+        );
         // Set layout
         frame.setLayout(new BorderLayout());
         panel.setLayout(new BorderLayout());
