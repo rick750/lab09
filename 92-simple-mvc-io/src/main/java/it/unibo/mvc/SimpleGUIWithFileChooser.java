@@ -6,7 +6,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -42,13 +41,13 @@ public final class SimpleGUIWithFileChooser {
         // Set layout
         frame.setLayout(new BorderLayout());
         mainPanel.setLayout(new BorderLayout());
-        secondPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
+        secondPanel.setLayout(new BorderLayout());
         frame.add(mainPanel);
         mainPanel.add(secondPanel, BorderLayout.NORTH);
         mainPanel.add(textArea, BorderLayout.CENTER);
         mainPanel.add(btnSave, BorderLayout.SOUTH);
-        secondPanel.add(textField);
-        secondPanel.add(btnBrowse);
+        secondPanel.add(textField, BorderLayout.CENTER);
+        secondPanel.add(btnBrowse, BorderLayout.LINE_END);
         // Save action
         btnSave.addActionListener(
             new ActionListener() {
