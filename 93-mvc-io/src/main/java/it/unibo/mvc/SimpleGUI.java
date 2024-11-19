@@ -1,7 +1,5 @@
 package it.unibo.mvc;
 
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -11,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
  * A very simple program using a graphical interface.
@@ -20,7 +19,7 @@ public final class SimpleGUI {
     private static final int PROPORTION = 2;
     private final JFrame frame = new JFrame();
 
-    public SimpleGUI(final Controller controller) {
+    public SimpleGUI(final SimpleController controller) {
         // Components
         final JPanel panel = new JPanel();
         final JTextField textField = new JTextField();
@@ -57,7 +56,7 @@ public final class SimpleGUI {
      * Launch the gui with a new controller
      */
     public static void main(String[] args) {
-        final SimpleGUI gui = new SimpleGUI(new Controller());
+        final SimpleGUI gui = new SimpleGUI(new SimpleController());
         gui.display();
     }
 }
