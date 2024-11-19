@@ -1,6 +1,5 @@
 package it.unibo.mvc;
 
-import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -32,7 +31,11 @@ public final class SimpleController implements Controller {
 
     @Override
     public void printCurrentString() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (this.nextString == null) {
+            throw new IllegalStateException("The current string is unset");
+        }
+        System.out.println(nextString); //NOPMD : it is required by the exercise
+        history.add(this.nextString);
     }
 
 }
