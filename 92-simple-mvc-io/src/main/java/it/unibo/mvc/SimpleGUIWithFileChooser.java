@@ -25,6 +25,11 @@ public final class SimpleGUIWithFileChooser {
     private static final int PROPORTION = 3;
     private final JFrame frame = new JFrame();
 
+    /**
+     * Constructor of a SimpleGUIWithFileChooser.
+     * 
+     * @param controller the controller to use
+     */
     public SimpleGUIWithFileChooser(final Controller controller) {
         // Creating components
         final JPanel mainPanel = new JPanel();
@@ -71,9 +76,9 @@ public final class SimpleGUIWithFileChooser {
                             // Nothing to do
                             break;
                         default:
-                            JOptionPane.showMessageDialog(frame, actionSelected, "An error has occured", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(frame, actionSelected, "An error occurred", JOptionPane.ERROR_MESSAGE);
                     }
-                }                
+                }
             }
         );
         // Frame appearence instructions
