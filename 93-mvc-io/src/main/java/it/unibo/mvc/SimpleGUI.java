@@ -64,6 +64,7 @@ public final class SimpleGUI {
         mainPanel.setLayout(new BorderLayout());
         buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));
         frame.add(mainPanel);
+        mainPanel.add(buttonsPanel, BorderLayout.SOUTH);
         mainPanel.add(textField, BorderLayout.NORTH);
         mainPanel.add(textArea, BorderLayout.CENTER);
         buttonsPanel.add(btnPrint);
