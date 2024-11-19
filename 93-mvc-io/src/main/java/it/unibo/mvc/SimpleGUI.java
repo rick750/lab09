@@ -26,6 +26,7 @@ public final class SimpleGUI {
         final JPanel panel = new JPanel();
         final JTextField textField = new JTextField();
         final JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
         final JButton btnPrint = new JButton("Print");
         final JButton btnHistory = new JButton("Show history");
         // btnPrint action
@@ -33,7 +34,7 @@ public final class SimpleGUI {
             new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    controller.setNextStringToPrint(textArea.getText());
+                    controller.setNextStringToPrint(textField.getText());
                     controller.printCurrentString();
                 };
             }
