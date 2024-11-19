@@ -1,5 +1,6 @@
 package it.unibo.mvc;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public final class SimpleController implements Controller {
 
     @Override
     public List getPrintedStrings() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return List.copyOf(history);
     }
 
     @Override
