@@ -7,10 +7,14 @@ import java.util.List;
  *
  */
 public final class SimpleController implements Controller {
+    private String nextString;
 
     @Override
     public void setNextStringToPrint(String str) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (str == null) {
+            throw new IllegalArgumentException("Null values are not acceptable");
+        }
+        this.nextString = str;
     }
 
     @Override
