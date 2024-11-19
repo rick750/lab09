@@ -27,10 +27,9 @@ public final class SimpleGUI {
      */
     public SimpleGUI(final Controller controller) {
         // Set layouts
-        final BorderLayout brdLayout = new BorderLayout();
-        frame.setLayout(brdLayout);
+        frame.setLayout(new BorderLayout());
         final JPanel panel = new JPanel();
-        panel.setLayout(brdLayout);
+        panel.setLayout(new BorderLayout());
         frame.add(panel);
         // Creating new components
         final JTextArea textArea = new JTextArea();
