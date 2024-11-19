@@ -10,11 +10,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-import javax.swing.undo.StateEditable;
 
 
 /**
@@ -58,11 +58,11 @@ public final class SimpleGUIWithFileChooser {
         btnBrowse.addActionListener(
             new ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(final ActionEvent e) {
                     final JFileChooser fileChooser = new JFileChooser("Choose the file to save on");
                     fileChooser.setSelectedFile(controller.getFile());
-                    final int actionSelect = fileChooser.showSaveDialog(frame);
-                    switch (actionSelect) {
+                    final int actionSelected = fileChooser.showSaveDialog(frame);
+                    switch (actionSelected) {
                         case JFileChooser.APPROVE_OPTION:
                             controller.setFile(fileChooser.getSelectedFile());
                             textField.setText(controller.getPath());
@@ -71,10 +71,10 @@ public final class SimpleGUIWithFileChooser {
                             // Nothing to do
                             break;
                         default:
-                            throw new AssertionError();
+                            JOptionPane.showMessageDialog(frame, actionSelected, "An error has occured", JOptionPane.ERROR_MESSAGE);
                     }
                 }                
-            };
+            }
         );
         // Frame appearence instructions
         frame.setContentPane(mainPanel);
