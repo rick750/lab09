@@ -5,9 +5,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
@@ -76,14 +74,8 @@ public class BadIOGUI {
         });
 
         read.addActionListener((final ActionEvent e1) -> {
-            try (
-                    BufferedReader file = new BufferedReader(new FileReader(PATH, StandardCharsets.UTF_8))
-                    ) {
-                final String line = file.readLine();
-                if (line != null) {
-                    System.out.println(line); //NOPMD : required by the excercise
-                }
-                for (final var myLine: Files.readAllLines(Path.of(PATH), StandardCharsets.UTF_8)) {
+            try {
+                for (final String myLine: Files.readAllLines(Path.of(PATH), StandardCharsets.UTF_8)) {
                     System.out.println(myLine); //NOPMD : required by the excercise
                 }
             } catch (IOException e2) {
