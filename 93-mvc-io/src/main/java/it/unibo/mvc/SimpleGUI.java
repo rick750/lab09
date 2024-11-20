@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -38,27 +37,17 @@ public final class SimpleGUI {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         final JButton btnPrint = new JButton("Print");
         final JButton btnHistory = new JButton("Show history");
-        btnPrint.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(final ActionEvent e) {
-                    controller.setNextStringToPrint(textField.getText());
-                    controller.printCurrentString();
-                }
+        btnPrint.addActionListener((final ActionEvent e) -> {
+            controller.setNextStringToPrint(textField.getText());
+            controller.printCurrentString();
+        });
+        btnHistory.addActionListener((final ActionEvent e) -> {
+            textArea.setText("");
+            for (final String elem: controller.getPrintedStrings()) {
+                textArea.append(elem);
+                textArea.append("\n");
             }
-        );
-        btnHistory.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(final ActionEvent e) {
-                    textArea.setText("");
-                    for (final String elem: controller.getPrintedStrings()) {
-                        textArea.append(elem);
-                        textArea.append("\n");
-                    }
-                }
-            }
-        );
+        });
         frame.setLayout(new BorderLayout());
         mainPanel.setLayout(new BorderLayout());
         buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));
