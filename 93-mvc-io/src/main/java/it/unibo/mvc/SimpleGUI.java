@@ -28,7 +28,6 @@ public final class SimpleGUI {
      * @param controller the controller to use
      */
     public SimpleGUI(final SimpleController controller) {
-        // Components
         final JPanel mainPanel = new JPanel();
         final JPanel buttonsPanel = new JPanel();
         final JTextField textField = new JTextField();
@@ -36,7 +35,6 @@ public final class SimpleGUI {
         textArea.setEditable(false);
         final JButton btnPrint = new JButton("Print");
         final JButton btnHistory = new JButton("Show history");
-        // btnPrint action
         btnPrint.addActionListener(
             new ActionListener() {
                 @Override
@@ -46,7 +44,6 @@ public final class SimpleGUI {
                 }
             }
         );
-        // btnHistory action
         btnHistory.addActionListener(
             new ActionListener() {
                 @Override
@@ -59,7 +56,6 @@ public final class SimpleGUI {
                 }
             }
         );
-        // Set layout
         frame.setLayout(new BorderLayout());
         mainPanel.setLayout(new BorderLayout());
         buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));
@@ -69,14 +65,12 @@ public final class SimpleGUI {
         mainPanel.add(textArea, BorderLayout.CENTER);
         buttonsPanel.add(btnPrint);
         buttonsPanel.add(btnHistory);
-        // Frame appearence instructions
         frame.setContentPane(mainPanel);
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();
         final int sh = (int) screen.getHeight();
         frame.setSize(sw / PROPORTION, sh / PROPORTION);
         frame.setLocationByPlatform(true);
-        // Behavior on exit
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 

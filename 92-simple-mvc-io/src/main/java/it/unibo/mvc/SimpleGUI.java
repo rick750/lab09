@@ -26,35 +26,28 @@ public final class SimpleGUI {
      * @param controller the controller to use
      */
     public SimpleGUI(final Controller controller) {
-        // Set layouts
         frame.setLayout(new BorderLayout());
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         frame.add(panel);
-        // Creating new components
         final JTextArea textArea = new JTextArea();
         final JButton bSave = new JButton("Save");
-        // Adding components to panel.
         panel.add(textArea, BorderLayout.CENTER);
         panel.add(bSave, BorderLayout.SOUTH);
-        // Save action
         bSave.addActionListener(
             new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent save) {
-                    // try-catch removed because it generates an error during compilation.
                     controller.writeOnFile(textArea.getText());
                 }
             }
         );
-        // Frame appearence instructions
         frame.setContentPane(panel);
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();
         final int sh = (int) screen.getHeight();
         frame.setSize(sw / PROPORTION, sh / PROPORTION);
         frame.setLocationByPlatform(true);
-        // Behavior on exit
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 

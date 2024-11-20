@@ -30,7 +30,6 @@ public final class SimpleGUIWithFileChooser {
      * @param controller the controller to use
      */
     public SimpleGUIWithFileChooser(final Controller controller) {
-        // Creating components
         final JPanel mainPanel = new JPanel();
         final JPanel secondPanel = new JPanel();
         final JTextArea textArea = new JTextArea();
@@ -38,7 +37,6 @@ public final class SimpleGUIWithFileChooser {
         final JTextField textField = new JTextField(controller.getPath());
         textField.setEditable(false);
         final JButton btnBrowse = new JButton("Browse...");
-        // Set layout
         frame.setLayout(new BorderLayout());
         mainPanel.setLayout(new BorderLayout());
         secondPanel.setLayout(new BorderLayout());
@@ -48,17 +46,14 @@ public final class SimpleGUIWithFileChooser {
         mainPanel.add(btnSave, BorderLayout.SOUTH);
         secondPanel.add(textField, BorderLayout.CENTER);
         secondPanel.add(btnBrowse, BorderLayout.LINE_END);
-        // Save action
         btnSave.addActionListener(
             new ActionListener() {
                 @Override
                 public void actionPerformed(final ActionEvent save) {
-                    // try-catch removed because it generates an error during compilation.
                     controller.writeOnFile(textArea.getText());
                 }
             }
         );
-        // Browse action
         btnBrowse.addActionListener(
             new ActionListener() {
                 @Override
@@ -80,14 +75,12 @@ public final class SimpleGUIWithFileChooser {
                 }
             }
         );
-        // Frame appearence instructions
         frame.setContentPane(mainPanel);
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();
         final int sh = (int) screen.getHeight();
         frame.setSize(sw / PROPORTION, sh / PROPORTION);
         frame.setLocationByPlatform(true);
-        // Behavior on exit
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
