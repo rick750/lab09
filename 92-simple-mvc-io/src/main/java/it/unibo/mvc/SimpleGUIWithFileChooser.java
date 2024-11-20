@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -46,35 +45,25 @@ public final class SimpleGUIWithFileChooser {
         mainPanel.add(btnSave, BorderLayout.SOUTH);
         secondPanel.add(textField, BorderLayout.CENTER);
         secondPanel.add(btnBrowse, BorderLayout.LINE_END);
-        btnSave.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(final ActionEvent save) {
-                    controller.writeOnFile(textArea.getText());
-                }
+        btnSave.addActionListener((final ActionEvent save) -> {
+            controller.writeOnFile(textArea.getText());
+        });
+        btnBrowse.addActionListener((final ActionEvent e) -> {
+            final JFileChooser fileChooser = new JFileChooser("Choose the file to save on");
+            fileChooser.setSelectedFile(controller.getFile());
+            final int actionSelected = fileChooser.showSaveDialog(frame);
+            switch (actionSelected) {
+                case JFileChooser.APPROVE_OPTION:
+                    controller.setFile(fileChooser.getSelectedFile());
+                    textField.setText(controller.getPath());
+                    break;
+                case JFileChooser.CANCEL_OPTION:
+                    // Nothing to do
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(frame, actionSelected, "An error occurred", JOptionPane.ERROR_MESSAGE);
             }
-        );
-        btnBrowse.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(final ActionEvent e) {
-                    final JFileChooser fileChooser = new JFileChooser("Choose the file to save on");
-                    fileChooser.setSelectedFile(controller.getFile());
-                    final int actionSelected = fileChooser.showSaveDialog(frame);
-                    switch (actionSelected) {
-                        case JFileChooser.APPROVE_OPTION:
-                            controller.setFile(fileChooser.getSelectedFile());
-                            textField.setText(controller.getPath());
-                            break;
-                        case JFileChooser.CANCEL_OPTION: 
-                            // Nothing to do
-                            break;
-                        default:
-                            JOptionPane.showMessageDialog(frame, actionSelected, "An error occurred", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-            }
-        );
+        });
         frame.setContentPane(mainPanel);
         final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         final int sw = (int) screen.getWidth();
