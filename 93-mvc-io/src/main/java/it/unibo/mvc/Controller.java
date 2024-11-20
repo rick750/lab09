@@ -23,7 +23,7 @@ public interface Controller {
      * 
      * @return a List rappresenting the history of printed strings
      */
-    List getPrintedStrings();
+    List<String> getPrintedStrings();
 
     /**
      * 
