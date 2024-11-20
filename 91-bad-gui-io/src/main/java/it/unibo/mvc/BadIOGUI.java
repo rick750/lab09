@@ -75,26 +75,21 @@ public class BadIOGUI {
             }
         });
 
-        read.addActionListener(
-            new ActionListener() {
-                @Override
-                public void actionPerformed(final ActionEvent e1) {
-                    try (
-                        BufferedReader file = new BufferedReader(new FileReader(PATH, StandardCharsets.UTF_8))
+        read.addActionListener((final ActionEvent e1) -> {
+            try (
+                    BufferedReader file = new BufferedReader(new FileReader(PATH, StandardCharsets.UTF_8))
                     ) {
-                        final String line = file.readLine();
-                        if (line != null) {
-                            System.out.println(line); //NOPMD : required by the excercise
-                        }
-                        for (final var myLine: Files.readAllLines(Path.of(PATH), StandardCharsets.UTF_8)) {
-                            System.out.println(myLine); //NOPMD : required by the excercise
-                        }
-                    } catch (IOException e2) {
-                        JOptionPane.showMessageDialog(frame, e2, "Error while reading", JOptionPane.ERROR_MESSAGE);
-                    }
+                final String line = file.readLine();
+                if (line != null) {
+                    System.out.println(line); //NOPMD : required by the excercise
                 }
+                for (final var myLine: Files.readAllLines(Path.of(PATH), StandardCharsets.UTF_8)) {
+                    System.out.println(myLine); //NOPMD : required by the excercise
+                }
+            } catch (IOException e2) {
+                JOptionPane.showMessageDialog(frame, e2, "Error while reading", JOptionPane.ERROR_MESSAGE);
             }
-        );
+        });
     }
 
     private void display() {
