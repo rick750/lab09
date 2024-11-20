@@ -10,6 +10,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
@@ -33,6 +34,8 @@ public final class SimpleGUI {
         final JTextField textField = new JTextField();
         final JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
+        final JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         final JButton btnPrint = new JButton("Print");
         final JButton btnHistory = new JButton("Show history");
         btnPrint.addActionListener(
@@ -62,7 +65,7 @@ public final class SimpleGUI {
         frame.add(mainPanel);
         mainPanel.add(buttonsPanel, BorderLayout.SOUTH);
         mainPanel.add(textField, BorderLayout.NORTH);
-        mainPanel.add(textArea, BorderLayout.CENTER);
+        mainPanel.add(scrollPane, BorderLayout.CENTER);
         buttonsPanel.add(btnPrint);
         buttonsPanel.add(btnHistory);
         frame.setContentPane(mainPanel);
