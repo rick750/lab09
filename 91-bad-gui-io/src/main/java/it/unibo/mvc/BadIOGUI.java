@@ -73,13 +73,13 @@ public class BadIOGUI {
             }
         });
 
-        read.addActionListener((final ActionEvent e1) -> {
+        read.addActionListener(e -> {
             try {
                 for (final String myLine: Files.readAllLines(Path.of(PATH), StandardCharsets.UTF_8)) {
                     System.out.println(myLine); //NOPMD : required by the excercise
                 }
-            } catch (IOException e2) {
-                JOptionPane.showMessageDialog(frame, e2, "Error while reading", JOptionPane.ERROR_MESSAGE);
+            } catch (IOException e1) {
+                JOptionPane.showMessageDialog(frame, e1, "Error while reading", JOptionPane.ERROR_MESSAGE);
             }
         });
     }

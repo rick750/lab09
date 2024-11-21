@@ -45,10 +45,10 @@ public final class SimpleGUIWithFileChooser {
         mainPanel.add(btnSave, BorderLayout.SOUTH);
         secondPanel.add(textField, BorderLayout.CENTER);
         secondPanel.add(btnBrowse, BorderLayout.LINE_END);
-        btnSave.addActionListener((final ActionEvent save) -> {
+        btnSave.addActionListener(e -> {
             controller.writeOnFile(textArea.getText());
         });
-        btnBrowse.addActionListener((final ActionEvent e) -> {
+        btnBrowse.addActionListener(e -> {
             final JFileChooser fileChooser = new JFileChooser("Choose the file to save on");
             fileChooser.setSelectedFile(controller.getFile());
             final int actionSelected = fileChooser.showSaveDialog(frame);

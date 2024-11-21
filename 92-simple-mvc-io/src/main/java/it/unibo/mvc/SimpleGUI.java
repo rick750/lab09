@@ -3,7 +3,6 @@ package it.unibo.mvc;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -33,7 +32,7 @@ public final class SimpleGUI {
         final JButton bSave = new JButton("Save");
         panel.add(textArea, BorderLayout.CENTER);
         panel.add(bSave, BorderLayout.SOUTH);
-        bSave.addActionListener((final ActionEvent save) -> {
+        bSave.addActionListener(e -> {
             controller.writeOnFile(textArea.getText());
         });
         frame.setContentPane(panel);

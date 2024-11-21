@@ -41,7 +41,7 @@ public final class SimpleGUI {
             controller.setNextStringToPrint(textField.getText());
             controller.printCurrentString();
         });
-        btnHistory.addActionListener((final ActionEvent e) -> {
+        btnHistory.addActionListener(e -> {
             textArea.setText("");
             for (final String elem: controller.getPrintedStrings()) {
                 textArea.append(elem);
